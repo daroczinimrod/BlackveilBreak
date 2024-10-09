@@ -1,10 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://bs5bitmrf4hpx"]
+[gd_scene load_steps=49 format=3 uid="uid://bs5bitmrf4hpx"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fnswn"]
 [ext_resource type="Texture2D" uid="uid://oj5eoy2uruqs" path="res://Sprites/player1/IDLEblack(1).png" id="2_u78qa"]
 [ext_resource type="Texture2D" uid="uid://ccjttwmy5s0vc" path="res://Sprites/player1/16.png" id="2_yfiba"]
 [ext_resource type="Texture2D" uid="uid://dlayw0qwp50ar" path="res://Sprites/player1/JUMP.png" id="3_epbge"]
 [ext_resource type="Texture2D" uid="uid://b5fgbujds4rif" path="res://Sprites/player1/RUN(1).png" id="4_3dykt"]
+[ext_resource type="FontFile" uid="uid://cxvgu8tft8y2" path="res://Fonts/Assasin/misc/Assassin-2PGw.ttf" id="6_fiv7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gtln"]
 atlas = ExtResource("2_yfiba")
@@ -278,14 +279,16 @@ animations = [{
 height = 34.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2t1rj"]
+font = ExtResource("6_fiv7r")
 font_size = 30
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_es6a3"]
 line_spacing = 30.0
+font = ExtResource("6_fiv7r")
 font_size = 77
 font_color = Color(1, 0, 0, 0)
+outline_size = 3
+outline_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_blf47"]
 resource_name = "Death"
@@ -376,6 +379,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Camera2D/CanvasLayer/Panel"]
+visible = false
 z_index = 6
 layout_mode = 1
 anchors_preset = 8
