@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh5aiev4mxyka"]
+
+[ext_resource type="Script" path="res://Items/spike.gd" id="1_58oi2"]
+[ext_resource type="Texture2D" uid="uid://fe4ej8q80r6n" path="res://Tilesets/Platformer Asset All/LBS.png" id="1_sxb5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eqcb1"]
+radius = 15.0333
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_58oi2")
+
+[node name="Area2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_sxb5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eqcb1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

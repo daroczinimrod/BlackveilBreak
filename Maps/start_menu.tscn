@@ -1,0 +1,176 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxc2d4tyvsnou"]
+
+[ext_resource type="Script" path="res://Maps/start_menu.gd" id="1_ernkn"]
+[ext_resource type="Texture2D" uid="uid://bo0vyqbnmch0a" path="res://Sprites/Pics/cigo.jpg" id="2_1kdrr"]
+[ext_resource type="FontFile" uid="uid://cknhm5eexqs2" path="res://Fonts/MapRoman-Condensed-BF64dc3d4ae1cec.otf" id="3_4h2m4"]
+
+[sub_resource type="Animation" id="Animation_75nm0"]
+resource_name = "Load In"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.03333, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.73333, 3.96667, 4.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2sk44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14rjw"]
+_data = {
+"Load In": SubResource("Animation_75nm0"),
+"RESET": SubResource("Animation_2sk44")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrgwg"]
+font = ExtResource("3_4h2m4")
+font_size = 55
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7njax"]
+font = ExtResource("3_4h2m4")
+font_size = 82
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_ernkn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_14rjw")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 1
+offset_left = -9.0
+offset_top = -53.0
+offset_right = 31.0
+offset_bottom = -13.0
+scale = Vector2(48.8868, 268.861)
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+position = Vector2(902, 566)
+scale = Vector2(1.14, 1.105)
+texture = ExtResource("2_1kdrr")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = 15.0
+offset_right = 209.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.16, 1)
+text = "Blackveil Break"
+label_settings = SubResource("LabelSettings_nrgwg")
+
+[node name="Nev" type="Label" parent="CanvasLayer"]
+offset_left = 551.0
+offset_top = 502.0
+offset_right = 1239.0
+offset_bottom = 601.0
+scale = Vector2(1.2, 1)
+text = "Blackveil Break
+"
+label_settings = SubResource("LabelSettings_7njax")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -199.0
+offset_right = 20.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="CanvasLayer/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -80.0
+offset_top = 417.0
+offset_right = 16.0
+offset_bottom = 448.0
+scale = Vector2(1.96, 1.96)
+text = "Start Game"
+
+[node name="Options" type="Button" parent="CanvasLayer/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -80.0
+offset_top = 483.0
+offset_right = 16.0
+offset_bottom = 514.0
+scale = Vector2(1.96, 1.96)
+text = "Options"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -80.0
+offset_top = 549.0
+offset_right = 16.0
+offset_bottom = 580.0
+scale = Vector2(1.96, 1.96)
+text = "Quit"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/Panel/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Quit" to="." method="_on_quit_pressed"]
